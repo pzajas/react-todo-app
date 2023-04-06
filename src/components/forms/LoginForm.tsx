@@ -1,15 +1,19 @@
 import { HTTP_URLS } from '../../libs/http'
-import { useState, FormEvent } from 'react'
+import { useState, useEffect, FormEvent } from 'react'
 
 import axios from 'axios'
+import jwtDecode from 'jwt-decode'
+import Cookies from 'universal-cookie'
+import { Link } from 'react-router-dom'
 
 const initialValues = {
   username: '',
   password: '',
-  email: '',
 }
 
-const LoginForm = (): any => {
+const cookies = new Cookies()
+
+export const LoginForm = (): any => {
   const [userData, setUserData] = useState(initialValues)
 
   const handleSubmit = async (
@@ -18,15 +22,17 @@ const LoginForm = (): any => {
     event.preventDefault()
 
     await axios
-      .post(HTTP_URLS.REGISTER, {
+      .post(HTTP_URLS.LOGIN, {
         username: userData.username,
         password: userData.password,
-        email: userData.email,
       })
       .then((response) => {
-        console.log(response)
+        const token = response.data.token
+        jwtDecode(token)
+
+        cookies.set('token', token)
       })
-      .catch((err) => console.log(err.response.data))
+      .catch((err) => console.log(err))
   }
 
   const handleOnChange = (e: FormEvent<any>) => {
@@ -37,8 +43,9 @@ const LoginForm = (): any => {
       [name]: value,
     })
   }
+
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <input
           name="username"
@@ -50,15 +57,10 @@ const LoginForm = (): any => {
           value={userData.password}
           onChange={handleOnChange}
         />
-        <input
-          name="email"
-          value={userData.email}
-          onChange={handleOnChange}
-        />
         <input type="submit" />
       </form>
-    </div>
+
+      <Link to="/">Home</Link>
+    </>
   )
 }
-
-export default LoginForm
