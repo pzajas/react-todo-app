@@ -9,16 +9,16 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
+      {/* {error.statusText || error.message} ?
+      <p>
+        <div>{error.statusText}</div>
+      </p>
+      : */}
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
-
       <p>
         <Link to="/login">Login</Link>
       </p>
-      {/* <p>
-        {error.statusText || error.message}?
-        <div>xxxxxx</div> : <div>nope</div>
-      </p> */}
     </div>
   )
 }
