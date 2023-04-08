@@ -1,7 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import RootLayout from './layouts/RootLayout'
-
 import Login from './routes/Login'
 import Logout from './routes/Logout'
 import Todos from './routes/Todos'

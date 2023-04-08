@@ -9,6 +9,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import { RouterProvider } from 'react-router-dom'
 
+import './index.css'
+
 let persistor = persistStore(store)
 
 ReactDOM.createRoot(
