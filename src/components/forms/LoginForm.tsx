@@ -1,72 +1,65 @@
 import { HTTP_URLS } from '../../libs/http'
-import { useState, FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { changeTokenState } from '../../redux/features/tokenSlice'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { ErrorMessage } from '@hookform/error-message'
+import { LoginSchema } from '../../validation/schemas/LoginSchema'
 
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import Cookies from 'universal-cookie'
 
-const initialValues = {
-  username: '',
-  password: '',
-}
-
 const cookies = new Cookies()
 
 export const LoginForm = (): any => {
-  const [userData, setUserData] = useState(initialValues)
+  const [data, setData] = useState(0)
+
   const dispatch = useDispatch()
 
-  const handleSubmit = async (
-    event: FormEvent<HTMLFormElement>
-  ) => {
-    event.preventDefault()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(LoginSchema),
+    mode: 'onChange',
+  })
 
-    await axios
+  const onSubmit = (data: any) => {
+    axios
       .post(HTTP_URLS.LOGIN, {
-        username: userData.username,
-        password: userData.password,
+        username: data.username,
+        password: data.password,
       })
       .then((response) => {
         const token = response.data.token
         jwtDecode(token)
 
         cookies.set('token', token)
-        dispatch(changeTokenState(true))
+        dispatch(changeTokenState(Date.now()))
+
+        setData(Date.now())
+        reset()
       })
-      .catch((err: string) => console.log(err))
-  }
-
-  const handleOnChange = (
-    e: FormEvent<HTMLInputElement>
-  ) => {
-    const { name, value } = e.currentTarget
-
-    setUserData({
-      ...userData,
-      [name]: value,
-    })
+      .catch((err: string) => {
+        dispatch(changeTokenState(0))
+      })
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input
-          name="username"
-          value={userData.username}
-          onChange={handleOnChange}
-        />
-        <input
-          name="password"
-          value={userData.password}
-          onChange={handleOnChange}
-        />
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('username')} />
+        <ErrorMessage errors={errors} name="username" />
+
+        <input {...register('password')} />
+        <ErrorMessage errors={errors} name="password" />
+
         <input type="submit" />
       </form>
-
-      <Link to="/">Home</Link>
-    </>
+    </div>
   )
 }

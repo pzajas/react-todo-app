@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  isValidToken: false,
+  tokenDate: Date.now(),
 }
 
 export const tokenSlice = createSlice({
@@ -9,7 +9,7 @@ export const tokenSlice = createSlice({
   initialState,
   reducers: {
     changeTokenState: (state, action) => {
-      state.isValidToken = action.payload
+      state.tokenDate = action.payload
     },
   },
 })

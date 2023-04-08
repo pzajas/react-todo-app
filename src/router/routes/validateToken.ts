@@ -9,7 +9,6 @@ const validateToken = () => {
 
   try {
     const decodedToken: any = jwtDecode(token)
-
     decoded = decodedToken.exp > Date.now() / 1000
   } catch (error) {
     console.log(error)

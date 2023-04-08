@@ -11,7 +11,7 @@ const Logout = () => {
   const removeCookie = () => {
     cookie.remove('token')
 
-    dispatch(changeTokenState(false))
+    dispatch(changeTokenState(0))
   }
 
   return (
