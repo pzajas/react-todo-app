@@ -7,15 +7,13 @@ const ProtectedRoutes = () => {
   const isValidToken = validateToken()
   const dispatch = useDispatch()
 
-  console.log(isValidToken)
-
   if (isValidToken) {
-    dispatch(changeTokenState(true))
+    dispatch(changeTokenState(Date.now()))
   } else {
-    dispatch(changeTokenState(false))
+    dispatch(changeTokenState(0))
   }
 
-  return isValidToken ? (
+  return isValidToken === true ? (
     <Outlet />
   ) : (
     <Navigate to="/login" />
