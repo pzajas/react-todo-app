@@ -9,8 +9,8 @@ const StyledParagraph = styled.p`
   text-align: center;
 `
 
-const SecondaryText = (children: any) => {
-  return <StyledParagraph>{children.text}</StyledParagraph>
+const SecondaryText = ({ text }: { text: string }): JSX.Element => {
+  return <StyledParagraph>{text}</StyledParagraph>
 }
 
 export default SecondaryText

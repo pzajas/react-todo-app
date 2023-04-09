@@ -1,12 +1,6 @@
-import { NavLink, useRouteError } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-export default function ErrorPage() {
-  const error: any = useRouteError()
-
-  let message: string
-  let statusText: number
-
+export const ErrorPage = (): any => {
   return (
     <div id="error-page">
       {/* {error.statusText || error.message} ?

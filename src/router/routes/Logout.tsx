@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import Cookies from 'universal-cookie'
-import { useSelector, useDispatch } from 'react-redux'
 import { changeTokenState } from '../../redux/features/tokenSlice'
+import { useDispatch } from 'react-redux'
+import Cookies from 'universal-cookie'
 
 const cookie = new Cookies()
 
-const Logout = () => {
+const Logout = (): any => {
   const dispatch = useDispatch()
 
-  const removeCookie = () => {
+  const removeCookie = (): any => {
     cookie.remove('token')
 
     dispatch(changeTokenState(0))

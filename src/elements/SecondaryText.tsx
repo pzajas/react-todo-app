@@ -8,7 +8,7 @@ const StyledParagraph = styled.p`
   font-size: 0.8rem;
 `
 
-const SecondaryText = (children: any) => {
+const SecondaryText = (children: any): any => {
   return <StyledParagraph>{children.text}</StyledParagraph>
 }
 

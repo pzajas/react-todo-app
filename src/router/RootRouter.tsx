@@ -4,9 +4,10 @@ import Login from './routes/Login'
 import Logout from './routes/Logout'
 import Todos from './routes/Todos'
 
-import ProtectedRoutes from './routes/ProtectedRoutes'
 import App from '../App'
-import ErrorPage from './Errors/ErrorPage'
+import ProtectedRoutes from './routes/ProtectedRoutes'
+
+import { ErrorPage } from './Errors/ErrorPage'
 
 export const RootRouter = createBrowserRouter([
   {

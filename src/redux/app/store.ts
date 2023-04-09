@@ -1,18 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
 
-import tokenReducer from '../features/tokenSlice'
 import storage from 'redux-persist/lib/storage'
+import tokenReducer from '../features/tokenSlice'
 
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
   REGISTER,
+  REHYDRATE,
+  persistReducer,
+  persistStore,
 } from 'redux-persist'
 
 const persistConfig = {
@@ -26,24 +26,14 @@ const rootReducer = combineReducers({
   token: tokenReducer,
 })
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  rootReducer
-)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware: any) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [
-          FLUSH,
-          REHYDRATE,
-          PAUSE,
-          PERSIST,
-          PURGE,
-          REGISTER,
-        ],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 })

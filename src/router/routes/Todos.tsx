@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Todos = () => {
+const Todos = (): any => {
   return (
     <>
       Todos

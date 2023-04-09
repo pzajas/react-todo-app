@@ -1,6 +1,6 @@
-import styled from 'styled-components'
 import PrimaryText from '../../elements/PrimaryText'
 import SecondaryText from '../../elements/SecondaryText'
+import styled from 'styled-components'
 
 const StyledLoginNavbar = styled.div`
   display: flex;
@@ -12,11 +12,11 @@ const StyledLoginNavbar = styled.div`
   font-weight: bold;
 
   div {
-    width: 80%;
+    width: 90%;
   }
 `
 
-const LoginNavbar = () => {
+const LoginNavbar = (): any => {
   return (
     <StyledLoginNavbar>
       <PrimaryText text="WELCOME BACK" />
