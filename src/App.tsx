@@ -1,18 +1,10 @@
-import { LoginForm } from './components/forms/LoginForm'
-import LoginNavbar from './components/nav/LoginNavbar'
-import RootLayout from './router/layouts/RootLayout'
-import styled from 'styled-components'
+import Login from './components/login/Login'
 
-const StyledApplicationContainer = styled.div`
-  padding: 5.6rem;
-`
-
-const App = () => {
+const App = (): any => {
   return (
-    <StyledApplicationContainer>
-      <LoginNavbar />
-      <LoginForm />
-    </StyledApplicationContainer>
+    <>
+      <Login />
+    </>
   )
 }
 

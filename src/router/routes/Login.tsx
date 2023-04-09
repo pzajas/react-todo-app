@@ -1,6 +1,6 @@
-import { LoginForm } from '../../components/forms/LoginForm'
+import { LoginForm } from '../../components/login/LoginForm'
 
-const Login = () => {
+const Login = (): any => {
   return (
     <>
       <LoginForm />

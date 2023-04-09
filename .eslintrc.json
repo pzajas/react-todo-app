@@ -9,28 +9,19 @@
     "prettier"
   ],
   "overrides": [],
-  // "parserOptions": {
-  //     "ecmaVersion": "latest",
-  //     "sourceType": "module",
-  //     "project": ["./tsconfig.json"]
-  // },
-  "plugins": [
-    "react",
-    "prettier",
-    "sort-imports-es6-autofix"
-  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["react", "prettier", "sort-imports-es6-autofix"],
   "rules": {
     "sort-imports-es6-autofix/sort-imports-es6": [
       2,
       {
         "ignoreCase": false,
         "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": [
-          "none",
-          "all",
-          "multiple",
-          "single"
-        ]
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
     ],
 
@@ -40,6 +31,8 @@
         "endOfLine": "auto"
       }
     ],
+
+    "react/react-in-jsx-scope": "off",
 
     "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/no-misused-promises": "off",

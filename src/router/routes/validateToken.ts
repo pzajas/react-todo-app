@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie'
 import jwtDecode from 'jwt-decode'
 
-const validateToken = () => {
+const validateToken = (): any => {
   const cookies = new Cookies()
   const token = cookies.get('token')
 

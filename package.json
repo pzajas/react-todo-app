@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "dependencies": {
     "@hookform/devtools": "^4.3.1",

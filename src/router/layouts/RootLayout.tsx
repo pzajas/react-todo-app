@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 
-export const RootLayout = () => {
+export const RootLayout = (): any => {
   return (
     <>
       <header>
