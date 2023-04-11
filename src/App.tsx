@@ -1,9 +1,9 @@
-import Login from './components/login/Login'
+import RootLayout from './router/layouts/RootLayout'
 
-const App = (): any => {
+const App = (): JSX.Element => {
   return (
     <>
-      <Login />
+      <RootLayout />
     </>
   )
 }

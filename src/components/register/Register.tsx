@@ -3,9 +3,9 @@ import { AuthenticationHeader } from './header/AuthenticationHeader'
 import { LoginForm } from './body/form/LoginForm'
 import { SecondaryLinkContainer } from './body/SecondaryLinkContainer'
 
-import DividerWithText from './body/DividerWithText'
+import DividerWithText from '../login/body/DividerWithText'
 
-export const Login = (): JSX.Element => {
+export const Register = (): JSX.Element => {
   return (
     <div>
       <AuthenticationHeader />

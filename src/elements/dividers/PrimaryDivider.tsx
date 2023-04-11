@@ -15,7 +15,7 @@ const StyledRectangle = styled.div`
     );
 `
 
-const PrimaryDivider = (): any => {
+const PrimaryDivider = (): JSX.Element => {
   return <StyledRectangle />
 }
 

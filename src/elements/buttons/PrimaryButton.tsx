@@ -23,7 +23,7 @@ const StyledButton = styled.button`
   }
 `
 
-const PrimaryButton = ({ text, icon }: any): any => {
+export const PrimaryButton = ({ text, icon }: any): any => {
   return (
     <>
       <StyledButton>
@@ -35,5 +35,3 @@ const PrimaryButton = ({ text, icon }: any): any => {
     </>
   )
 }
-
-export default PrimaryButton
