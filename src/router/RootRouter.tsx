@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 
-import Login from './routes/Login'
+import { Login } from '../components/login/Login'
 import Logout from './routes/Logout'
 import Todos from './routes/Todos'
 
@@ -8,6 +8,7 @@ import App from '../App'
 import ProtectedRoutes from './routes/ProtectedRoutes'
 
 import { ErrorPage } from './Errors/ErrorPage'
+import { Register } from '../components/register/Register'
 
 export const RootRouter = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const RootRouter = createBrowserRouter([
     element: <App />,
     children: [
       { path: '/login', element: <Login /> },
+      { path: '/register', element: <Register /> },
       { path: '*', element: <ErrorPage /> },
 
       {
