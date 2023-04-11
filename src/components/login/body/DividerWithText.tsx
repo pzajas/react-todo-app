@@ -22,7 +22,7 @@ const StyledConnectContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 3.4rem;
+  margin-bottom: 4rem;
 
   font-size: 0.8rem;
 `

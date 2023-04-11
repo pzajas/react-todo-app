@@ -1,12 +1,14 @@
 import { LoginButtonContainer } from './LoginButtonContainer'
 import { LoginFormInput } from './LoginFormInput'
 import { LoginOptions } from './LoginOptions'
+import { LoginUser } from '../../../../assets/icons/LoginUser'
 import { onSubmit, resolverOptions } from '../../../../utils/onSubmit'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
 import { type IFormData } from '../../../../typescript/types/types'
 
+import { LoginPassword } from '../../../../assets/icons/LoginPassword'
 import styled from 'styled-components'
 
 export const LoginForm: React.FC = (): JSX.Element => {
@@ -24,8 +26,8 @@ export const LoginForm: React.FC = (): JSX.Element => {
   }
 
   const formInputs = [
-    { name: 'email', placeholder: 'email' },
-    { name: 'password', placeholder: 'password' },
+    { name: 'email', placeholder: 'email', icon: <LoginUser /> },
+    { name: 'password', placeholder: 'password', icon: <LoginPassword /> },
   ]
 
   return (
@@ -39,6 +41,7 @@ export const LoginForm: React.FC = (): JSX.Element => {
             autoComplete="off"
             register={register}
             errors={errors}
+            icon={input.icon}
           />
         ))}
         <LoginOptions />

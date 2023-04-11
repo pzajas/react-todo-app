@@ -2,8 +2,8 @@ export const LoginClear = (): any => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="7"
-      height="7"
+      width="12"
+      height="12"
       fill="none"
       viewBox="0 0 8 6"
     >

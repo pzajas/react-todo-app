@@ -1,4 +1,4 @@
-import { LoginForm } from '../../components/login/LoginForm'
+import { LoginForm } from '../../components/login/body/form/LoginForm'
 
 const Login = (): any => {
   return (

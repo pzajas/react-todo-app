@@ -1,5 +1,5 @@
 import { LoginClear } from '../../../../assets/icons/LoginClear'
-// import { LoginIcon } from '../../../../assets/icons/LoginIcon'
+import { LoginIcon } from '../../../../assets/icons/LoginIcon'
 import { PrimaryButton } from '../../../../elements/buttons/PrimaryButton'
 import styled from 'styled-components'
 
@@ -8,8 +8,8 @@ export const RegisterButtonContainer = ({ onSubmit }: any): JSX.Element => {
     <StyledButtonContainer>
       <PrimaryButton
         type="submit"
-        text="REGISTER"
-        // icon={<LoginIcon />}
+        text="CREATE"
+        icon={<LoginIcon />}
         onClick={onSubmit}
       />
 
