@@ -30,7 +30,7 @@ const StyledLinksContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   gap: 2.2rem;
-  margin: 0rem 0rem 3.4rem 0rem;
+  margin-bottom: 4rem;
 
   div {
     display: flex;
@@ -39,6 +39,7 @@ const StyledLinksContainer = styled.div`
     height: 3.3rem;
 
     background-color: #202020;
+    border-bottom: 1px solid #01ff8a;
 
     * {
       width: 1rem;

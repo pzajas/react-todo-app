@@ -8,6 +8,7 @@ interface Props {
   autoComplete: string
   register: any
   errors: any
+  icon: JSX.Element
 }
 
 export const RegisterFormInput: React.FC<Props> = ({
@@ -16,14 +17,18 @@ export const RegisterFormInput: React.FC<Props> = ({
   autoComplete,
   register,
   errors,
+  icon,
 }): JSX.Element => {
   return (
-    <div style={{ marginBottom: '1.5rem' }}>
-      <input
-        {...register(name)}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-      />
+    <div style={{ marginBottom: '1.8rem' }}>
+      <StyledInputContainer>
+        <input
+          {...register(name)}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+        />
+        <div>{icon}</div>
+      </StyledInputContainer>
       {errors[name] != null ? (
         <ErrorMessage
           errors={errors}
@@ -40,6 +45,19 @@ export const RegisterFormInput: React.FC<Props> = ({
 }
 
 // STYLES
+
+const StyledInputContainer = styled.div`
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    height: 100%;
+    padding: 0.6rem 0rem;
+    border-bottom: 1px solid #01ff8a;
+  }
+`
 
 const StyledError = styled.p`
   margin-top: 0.2rem;

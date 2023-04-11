@@ -9,6 +9,8 @@ import { useForm } from 'react-hook-form'
 
 import { type IRegisterData } from '../../../../typescript/types/types'
 
+import { LoginPassword } from '../../../../assets/icons/LoginPassword'
+import { RegisterUser } from '../../../../assets/icons/RegisterUser'
 import styled from 'styled-components'
 
 export const RegisterForm: React.FC = (): JSX.Element => {
@@ -24,8 +26,8 @@ export const RegisterForm: React.FC = (): JSX.Element => {
   }
 
   const formInputs = [
-    { name: 'email', placeholder: 'email' },
-    { name: 'password', placeholder: 'password' },
+    { name: 'email', placeholder: 'email', icon: <RegisterUser /> },
+    { name: 'password', placeholder: 'password', icon: <LoginPassword /> },
   ]
 
   return (
@@ -39,6 +41,7 @@ export const RegisterForm: React.FC = (): JSX.Element => {
             autoComplete="off"
             register={register}
             errors={errors}
+            icon={input.icon}
           />
         ))}
         <RegisterOptions />

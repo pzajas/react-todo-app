@@ -1,5 +1,18 @@
 import styled from 'styled-components'
 
+export const PrimaryButton = ({ text, icon }: any): JSX.Element => {
+  return (
+    <>
+      <StyledButton>
+        <div>
+          {text}
+          {icon}
+        </div>
+      </StyledButton>
+    </>
+  )
+}
+
 const StyledButton = styled.button`
   width: 8.3rem;
   height: 2.7rem;
@@ -19,19 +32,7 @@ const StyledButton = styled.button`
 
   div {
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
 `
-
-export const PrimaryButton = ({ text, icon }: any): any => {
-  return (
-    <>
-      <StyledButton>
-        <div>
-          {text}
-          {icon}
-        </div>
-      </StyledButton>
-    </>
-  )
-}
