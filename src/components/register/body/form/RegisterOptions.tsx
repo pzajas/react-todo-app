@@ -1,7 +1,7 @@
 import { SecondaryText } from '../../../../elements/texts/paragraphs/SecondaryText'
 import { SecondaryTextContainer } from '../SecondaryTextContainer'
 
-export const LoginOptions = (): JSX.Element => {
+export const RegisterOptions = (): JSX.Element => {
   return (
     <SecondaryTextContainer>
       <SecondaryText text="PLACEHOLDER?" />

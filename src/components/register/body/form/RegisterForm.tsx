@@ -1,26 +1,26 @@
-import { LoginButtonContainer } from './LoginButtonContainer'
-import { LoginFormInput } from './LoginFormInput'
-// import { LoginOptions } from './LoginOptions'
-import { onSubmit, resolverOptions } from '../../../../utils/onSubmit'
-import { useDispatch } from 'react-redux'
+import { RegisterButtonContainer } from './RegisterButtonContainer'
+import { RegisterFormInput } from './RegisterFormInput'
+import { RegisterOptions } from './RegisterOptions'
+import {
+  RegisterSubmit,
+  resolverOptions,
+} from '../../../../utils/RegisterSubmit'
 import { useForm } from 'react-hook-form'
 
-import { type IFormData } from '../../../../typescript/types/types'
+import { type IRegisterData } from '../../../../typescript/types/types'
 
 import styled from 'styled-components'
 
-export const LoginForm: React.FC = (): JSX.Element => {
-  const dispatch = useDispatch()
-
+export const RegisterForm: React.FC = (): JSX.Element => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormData>(resolverOptions)
+  } = useForm<IRegisterData>(resolverOptions)
 
-  const onSubmitHandler = async (formData: IFormData): Promise<void> => {
-    await onSubmit(formData, reset, dispatch)
+  const onSubmitHandler = async (formData: IRegisterData): Promise<void> => {
+    await RegisterSubmit(formData, reset)
   }
 
   const formInputs = [
@@ -32,7 +32,7 @@ export const LoginForm: React.FC = (): JSX.Element => {
     <div>
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
         {formInputs.map((input) => (
-          <LoginFormInput
+          <RegisterFormInput
             key={input.name}
             name={input.name}
             placeholder={input.placeholder}
@@ -41,8 +41,8 @@ export const LoginForm: React.FC = (): JSX.Element => {
             errors={errors}
           />
         ))}
-        {/* <LoginOptions /> */}
-        <LoginButtonContainer onSubmit={onSubmit} />
+        <RegisterOptions />
+        <RegisterButtonContainer onSubmit={RegisterSubmit} />
       </StyledForm>
     </div>
   )

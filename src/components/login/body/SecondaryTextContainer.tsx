@@ -16,5 +16,5 @@ const StyledOptionsContainer = styled.div`
 
   font-size: 0.8rem;
 
-  margin-bottom: 3.4rem;
+  margin: 3rem 0rem 3rem 0rem;
 `
