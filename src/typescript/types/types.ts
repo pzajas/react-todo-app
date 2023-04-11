@@ -3,7 +3,12 @@ import { type yupResolver } from '@hookform/resolvers/yup'
 // INTERFACES
 
 export interface IFormData {
-  username: string
+  email: string
+  password: string
+}
+
+export interface IRegisterData {
+  email: string
   password: string
 }
 

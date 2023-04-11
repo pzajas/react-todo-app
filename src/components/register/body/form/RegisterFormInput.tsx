@@ -10,7 +10,7 @@ interface Props {
   errors: any
 }
 
-export const LoginFormInput: React.FC<Props> = ({
+export const RegisterFormInput: React.FC<Props> = ({
   name,
   placeholder,
   autoComplete,
@@ -18,7 +18,7 @@ export const LoginFormInput: React.FC<Props> = ({
   errors,
 }): JSX.Element => {
   return (
-    <div style={{ marginBottom: '2.2rem' }}>
+    <div style={{ marginBottom: '1.5rem' }}>
       <input
         {...register(name)}
         placeholder={placeholder}
@@ -32,7 +32,7 @@ export const LoginFormInput: React.FC<Props> = ({
         />
       ) : (
         <StyledErrorPlaceholder>
-          {name === 'username' ? 'Username Error' : 'Password Error'}
+          {name === 'email' ? 'Email Error' : 'Password Error'}
         </StyledErrorPlaceholder>
       )}
     </div>
@@ -43,7 +43,7 @@ export const LoginFormInput: React.FC<Props> = ({
 
 const StyledError = styled.p`
   margin-top: 0.2rem;
-  margin-bottom: 1.9rem;
+  margin-bottom: 1.8rem;
   color: red;
   font-size: 0.8rem;
 `

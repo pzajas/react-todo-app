@@ -32,7 +32,7 @@ export const LoginFormInput: React.FC<Props> = ({
         />
       ) : (
         <StyledErrorPlaceholder>
-          {name === 'username' ? 'Username Error' : 'Password Error'}
+          {name === 'email' ? 'Email Error' : 'Password Error'}
         </StyledErrorPlaceholder>
       )}
     </div>

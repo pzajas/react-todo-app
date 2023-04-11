@@ -1,15 +1,15 @@
 import { LoginClear } from '../../../../assets/icons/LoginClear'
-import { LoginIcon } from '../../../../assets/icons/LoginIcon'
+// import { LoginIcon } from '../../../../assets/icons/LoginIcon'
 import { PrimaryButton } from '../../../../elements/buttons/PrimaryButton'
 import styled from 'styled-components'
 
-export const LoginButtonContainer = ({ onSubmit }: any): JSX.Element => {
+export const RegisterButtonContainer = ({ onSubmit }: any): JSX.Element => {
   return (
     <StyledButtonContainer>
       <PrimaryButton
         type="submit"
         text="REGISTER"
-        icon={<LoginIcon />}
+        // icon={<LoginIcon />}
         onClick={onSubmit}
       />
 
@@ -23,5 +23,5 @@ const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin-bottom: 3.4rem;
+  margin-bottom: 4.4rem;
 `

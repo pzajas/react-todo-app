@@ -24,7 +24,7 @@ export const LoginForm: React.FC = (): JSX.Element => {
   }
 
   const formInputs = [
-    { name: 'username', placeholder: 'username or email' },
+    { name: 'email', placeholder: 'email' },
     { name: 'password', placeholder: 'password' },
   ]
 
@@ -54,11 +54,9 @@ const StyledForm = styled.form`
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-
   gap: 2.5rem;
   margin-top: 4rem;
   position: relative;
-
   input {
     padding: 0;
     background-color: #181818;

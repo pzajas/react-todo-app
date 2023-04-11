@@ -26,7 +26,7 @@ export const onSubmit = async (
     const response: AxiosResponse<{ token: string }> = await axios.post(
       HTTP_URLS.LOGIN,
       {
-        username: data.username,
+        email: data.email,
         password: data.password,
       }
     )
