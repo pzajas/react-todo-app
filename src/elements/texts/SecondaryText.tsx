@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+interface IPrimaryText {
+  text: string
+}
 
-export const SecondaryText = ({ text }: any): JSX.Element => {
+export const SecondaryText = ({ text }: IPrimaryText): JSX.Element => {
   return <StyledParagraph>{text}</StyledParagraph>
 }
 

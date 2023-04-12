@@ -1,6 +1,15 @@
-import styled from 'styled-components'
+import { type MouseEventHandler } from 'react'
 
-export const PrimaryButton = ({ text, icon }: any): JSX.Element => {
+import styled from 'styled-components'
+interface IProps {
+  text: string
+  icon: JSX.Element
+
+  type?: any
+  onClick?: MouseEventHandler<void>
+}
+
+export const PrimaryButton = ({ text, icon }: IProps): JSX.Element => {
   return (
     <StyledButton>
       <div>

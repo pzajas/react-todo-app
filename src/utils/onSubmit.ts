@@ -1,5 +1,5 @@
-import { HTTP_URLS } from '../libs/http'
-import { LoginSchema } from '../validation/schemas/LoginSchema'
+import { AuthenticationSchema } from '../validation/schemas/authenticationSchema'
+import { HTTP_URLS } from '@libs/http'
 import { changeTokenState } from '../redux/features/tokenSlice'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -45,6 +45,6 @@ export const onSubmit = async (
 }
 
 export const resolverOptions: IResolver = {
-  resolver: yupResolver(LoginSchema),
+  resolver: yupResolver(AuthenticationSchema),
   mode: 'onChange',
 }

@@ -16,17 +16,15 @@ const linksArray = [
 
 export const SecondaryLinkContainer = (): JSX.Element => (
   <div>
-    <StyledLinksContainer>
+    <LinksContainer>
       {linksArray.map(({ icon, key }: IProps) => (
         <div key={key}>{icon}</div>
       ))}
-    </StyledLinksContainer>
+    </LinksContainer>
   </div>
 )
 
-// STYLES
-
-const StyledLinksContainer = styled.div`
+const LinksContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   gap: 2.2rem;

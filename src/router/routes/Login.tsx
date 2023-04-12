@@ -1,9 +1,9 @@
-import { LoginForm } from '../../components/login/body/form/LoginForm'
+import { FormContainer } from '@elements/forms/FormContainer'
 
 const Login = (): any => {
   return (
     <>
-      <LoginForm />
+      <FormContainer />
     </>
   )
 }
