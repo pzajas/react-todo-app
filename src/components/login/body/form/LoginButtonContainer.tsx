@@ -4,22 +4,31 @@ import { PrimaryButton } from '../../../../elements/buttons/PrimaryButton'
 
 import styled from 'styled-components'
 
-export const LoginButtonContainer = ({ onSubmit }: any): JSX.Element => {
+export const LoginButtonContainer = ({
+  onSubmitHandler,
+  handleReset,
+}: any): JSX.Element => {
   return (
     <StyledButtonContainer>
       <PrimaryButton
         type="submit"
         text="LOGIN"
         icon={<LoginIcon />}
-        onClick={onSubmit}
+        onClick={onSubmitHandler}
       />
 
-      <PrimaryButton text="CLEAR" icon={<LoginClear />} />
+      <PrimaryButton
+        type="button"
+        text="CLEAR"
+        icon={<LoginClear />}
+        onMouseDown={handleReset}
+      />
     </StyledButtonContainer>
   )
 }
 
 // STYLES
+
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;

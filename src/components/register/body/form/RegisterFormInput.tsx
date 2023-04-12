@@ -48,26 +48,28 @@ export const RegisterFormInput: React.FC<Props> = ({
 
 const StyledInputContainer = styled.div`
   display: flex;
-
   justify-content: space-between;
   align-items: center;
 
   div {
     height: 100%;
     padding: 0.6rem 0rem;
-    border-bottom: 1px solid #01ff8a;
+
+    border-bottom: ${({ theme }) => theme.borders.secondary};
   }
 `
 
 const StyledError = styled.p`
   margin-top: 0.2rem;
   margin-bottom: 1.8rem;
-  color: red;
-  font-size: 0.8rem;
+
+  color: ${({ theme }) => theme.colors.error};
+  font-size: ${({ theme }) => theme.fonts.small};
 `
 
 const StyledErrorPlaceholder = styled.div`
   margin-top: 0.2rem;
-  font-size: 0.8rem;
   opacity: 0;
+
+  font-size: ${({ theme }) => theme.fonts.small};
 `

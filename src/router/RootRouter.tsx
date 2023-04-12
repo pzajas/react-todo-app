@@ -9,11 +9,17 @@ import ProtectedRoutes from './routes/ProtectedRoutes'
 
 import { ErrorPage } from './Errors/ErrorPage'
 import { Register } from '../components/register/Register'
+import { ThemeProvider } from 'styled-components'
+import { theme } from '../styles/theme'
 
 export const RootRouter = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    ),
     children: [
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Register /> },

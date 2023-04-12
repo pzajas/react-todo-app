@@ -24,7 +24,7 @@ const StyledConnectContainer = styled.div`
   gap: 0.5rem;
   margin-bottom: 4rem;
 
-  font-size: 0.8rem;
+  font-size: ${({ theme }) => theme.fonts.small};
 `
 const StyledPrimaryDivider = styled.div`
   width: 5rem;

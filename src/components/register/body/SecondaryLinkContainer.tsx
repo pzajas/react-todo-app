@@ -38,8 +38,8 @@ const StyledLinksContainer = styled.div`
     width: 3.3rem;
     height: 3.3rem;
 
-    background-color: #202020;
-    border-bottom: 1px solid #01ff8a;
+    background-color: ${({ theme }) => theme.colors.button};
+    border-bottom: ${({ theme }) => theme.borders.secondary};
 
     * {
       width: 1rem;
