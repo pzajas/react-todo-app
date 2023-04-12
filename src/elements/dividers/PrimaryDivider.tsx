@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const PrimaryDivider = (): JSX.Element => {
+  return <StyledRectangle />
+}
+
 const StyledRectangle = styled.div`
   width: 5rem;
   height: 1px;
@@ -14,9 +18,3 @@ const StyledRectangle = styled.div`
       rgba(0, 195, 101, 0) 0.02%
     );
 `
-
-const PrimaryDivider = (): JSX.Element => {
-  return <StyledRectangle />
-}
-
-export default PrimaryDivider

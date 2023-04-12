@@ -1,23 +1,19 @@
-import { SecondaryText } from '../../../elements/texts/paragraphs/SecondaryText'
+import { PrimaryDivider } from '@elements/dividers/PrimaryDivider'
+import { SecondaryText } from '@elements/texts/SecondaryText'
 
-import PrimaryDivider from '../../../elements/dividers/PrimaryDivider'
 import styled from 'styled-components'
 
-const DividerWithText = (): JSX.Element => {
+export const DividerWithText = (): JSX.Element => {
   return (
-    <StyledConnectContainer>
+    <ConnectContainer>
       <StyledPrimaryDivider />
       <SecondaryText text="OR CONNECT WITH" />
       <PrimaryDivider />
-    </StyledConnectContainer>
+    </ConnectContainer>
   )
 }
 
-export default DividerWithText
-
-// STYLES
-
-const StyledConnectContainer = styled.div`
+const ConnectContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

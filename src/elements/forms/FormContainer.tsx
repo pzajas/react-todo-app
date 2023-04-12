@@ -1,18 +1,20 @@
-import { LoginButtonContainer } from './LoginButtonContainer'
-import { LoginFormInput } from './LoginFormInput'
-import { LoginOptions } from './LoginOptions'
-import { LoginUser } from '../../../../assets/icons/LoginUser'
-import { onSubmit, resolverOptions } from '../../../../utils/onSubmit'
+import { ButtonContainer } from './ButtonContainer'
+import { FormInputs } from './FormInputs'
+import { FormOptions } from './FormOptions'
+import { LoginPassword } from '@assets/icons/LoginPassword'
+import { LoginUser } from '@assets/icons/LoginUser'
+import { RegisterSubmit } from '@utils/RegisterSubmit'
+import { onSubmit, resolverOptions } from '@utils/onSubmit'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-import { type IFormData } from '../../../../typescript/types/types'
+import { type IFormData } from '@typescript/types/types'
 
-import { LoginPassword } from '../../../../assets/icons/LoginPassword'
 import styled from 'styled-components'
 
-export const LoginForm: React.FC = (): JSX.Element => {
+export const FormContainer: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
+  const path = window.location.pathname
 
   const {
     register,
@@ -21,8 +23,10 @@ export const LoginForm: React.FC = (): JSX.Element => {
     formState: { errors },
   } = useForm<IFormData>(resolverOptions)
 
-  const onSubmitHandler = async (formData: IFormData): Promise<void> => {
-    await onSubmit(formData, reset, dispatch)
+  const onSubmitHandler = async (data: IFormData): Promise<void> => {
+    path === '/login'
+      ? await onSubmit(data, reset, dispatch)
+      : await RegisterSubmit(data, reset)
   }
 
   const formInputs = [
@@ -34,18 +38,16 @@ export const LoginForm: React.FC = (): JSX.Element => {
     <div>
       <StyledForm onSubmit={handleSubmit(onSubmitHandler)}>
         {formInputs.map((input) => (
-          <LoginFormInput
+          <FormInputs
             key={input.name}
-            name={input.name}
-            placeholder={input.placeholder}
             autoComplete="off"
             register={register}
             errors={errors}
-            icon={input.icon}
+            {...input}
           />
         ))}
-        <LoginOptions />
-        <LoginButtonContainer onSubmit={onSubmit} />
+        <FormOptions />
+        <ButtonContainer onSubmit={onSubmit} />
       </StyledForm>
     </div>
   )

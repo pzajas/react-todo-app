@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+interface IProps {
+  path: string
+  text: string
+}
 
-export const SecondaryLink = ({ path, text }: any): any => {
+export const SecondaryLink = ({ path, text }: IProps): JSX.Element => {
   return <StyledLink to={path}>{text}</StyledLink>
 }
 

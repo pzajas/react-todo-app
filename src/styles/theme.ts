@@ -19,4 +19,8 @@ export const theme = {
     primary: '#181818',
     secondary: '1px solid #01ff8a',
   },
+
+  strength: {
+    good: 5,
+  },
 }

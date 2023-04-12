@@ -1,12 +1,12 @@
-import { HTTP_URLS } from '../libs/http'
-import { LoginSchema } from '../validation/schemas/LoginSchema'
+import { AuthenticationSchema } from '../validation/schemas/authenticationSchema'
+import { HTTP_URLS } from '@libs/http'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import {
   type IRegisterData,
   type IReset,
   type IResolver,
-} from '../typescript/types/types'
+} from '@typescript/types/types'
 
 import axios from 'axios'
 
@@ -15,12 +15,10 @@ export const RegisterSubmit = async (
   reset: IReset
 ): Promise<void> => {
   try {
-    const response: any = await axios.post(HTTP_URLS.REGISTER, {
+    await axios.post(HTTP_URLS.REGISTER, {
       email: data.email,
       password: data.password,
     })
-
-    console.log(response)
 
     reset()
   } catch (err: any) {
@@ -29,6 +27,6 @@ export const RegisterSubmit = async (
 }
 
 export const resolverOptions: IResolver = {
-  resolver: yupResolver(LoginSchema),
+  resolver: yupResolver(AuthenticationSchema),
   mode: 'onChange',
 }

@@ -1,16 +1,13 @@
+import { ErrorPage } from './Errors/ErrorPage'
+import { Login } from '@components/authentication/Login'
+import { ThemeProvider } from 'styled-components'
 import { createBrowserRouter } from 'react-router-dom'
-
-import { Login } from '../components/login/Login'
-import Logout from './routes/Logout'
-import Todos from './routes/Todos'
+import { theme } from '../styles/theme'
 
 import App from '../App'
+import Logout from './routes/Logout'
 import ProtectedRoutes from './routes/ProtectedRoutes'
-
-import { ErrorPage } from './Errors/ErrorPage'
-import { Register } from '../components/register/Register'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '../styles/theme'
+import Todos from './routes/Todos'
 
 export const RootRouter = createBrowserRouter([
   {
@@ -22,7 +19,7 @@ export const RootRouter = createBrowserRouter([
     ),
     children: [
       { path: '/login', element: <Login /> },
-      { path: '/register', element: <Register /> },
+      { path: '/register', element: <Login /> },
       { path: '*', element: <ErrorPage /> },
 
       {

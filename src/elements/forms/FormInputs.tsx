@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import { ErrorMessage } from '@hookform/error-message'
+
+import React from 'react'
 import styled from 'styled-components'
 
 interface Props {
@@ -11,24 +13,25 @@ interface Props {
   icon: JSX.Element
 }
 
-export const RegisterFormInput: React.FC<Props> = ({
+export const FormInputs: React.FC<Props> = ({
   name,
   placeholder,
   autoComplete,
   register,
   errors,
   icon,
-}): JSX.Element => {
+}) => {
   return (
-    <div style={{ marginBottom: '1.8rem' }}>
-      <StyledInputContainer>
+    <Wrapper>
+      <InputContainer>
         <input
           {...register(name)}
           placeholder={placeholder}
           autoComplete={autoComplete}
         />
         <div>{icon}</div>
-      </StyledInputContainer>
+      </InputContainer>
+
       {errors[name] != null ? (
         <ErrorMessage
           errors={errors}
@@ -36,17 +39,19 @@ export const RegisterFormInput: React.FC<Props> = ({
           render={({ message }) => <StyledError>{message}</StyledError>}
         />
       ) : (
-        <StyledErrorPlaceholder>
+        <ErrorPlaceholder>
           {name === 'email' ? 'Email Error' : 'Password Error'}
-        </StyledErrorPlaceholder>
+        </ErrorPlaceholder>
       )}
-    </div>
+    </Wrapper>
   )
 }
 
-// STYLES
+const Wrapper = styled.div`
+  margin-bottom: 1.8rem;
+`
 
-const StyledInputContainer = styled.div`
+const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,14 +65,13 @@ const StyledInputContainer = styled.div`
 `
 
 const StyledError = styled.p`
-  margin-top: 0.2rem;
-  margin-bottom: 1.8rem;
+  margin: 0.2rem 0 1.8rem;
 
   color: ${({ theme }) => theme.colors.error};
   font-size: ${({ theme }) => theme.fonts.small};
 `
 
-const StyledErrorPlaceholder = styled.div`
+const ErrorPlaceholder = styled.div`
   margin-top: 0.2rem;
   opacity: 0;
 
