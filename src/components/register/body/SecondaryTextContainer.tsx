@@ -13,8 +13,7 @@ export const SecondaryTextContainer = ({ children, className }: any): any => {
 const StyledOptionsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
-  font-size: 0.8rem;
-
   margin-bottom: 3.4rem;
+
+  font-size: ${({ theme }) => theme.fonts.small};
 `

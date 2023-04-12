@@ -51,8 +51,6 @@ export const LoginForm: React.FC = (): JSX.Element => {
   )
 }
 
-// STYLES
-
 const StyledForm = styled.form`
   align-items: center;
   flex-direction: column;
@@ -60,15 +58,17 @@ const StyledForm = styled.form`
   gap: 2.5rem;
   margin-top: 4rem;
   position: relative;
+
   input {
     padding: 0;
-    background-color: #181818;
-    font-size: 0.8rem;
-    font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
     outline: none;
     border: none;
-    border-bottom: 0.1rem solid #01ff8a;
     width: 100%;
     height: 2.8rem;
+
+    background-color: ${({ theme }) => theme.colors.primary};
+    font-size: ${({ theme }) => theme.fonts.small};
+    border-bottom: ${({ theme }) => theme.borders.secondary};
   }
 `

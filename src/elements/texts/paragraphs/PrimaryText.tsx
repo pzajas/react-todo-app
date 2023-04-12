@@ -1,13 +1,4 @@
 import styled from 'styled-components'
-
-const StyledParagraph = styled.p`
-  font-size: 2rem;
-  font-weight: bold;
-  color: #01ff8a;
-  margin-bottom: 3rem;
-  text-align: center;
-`
-
 interface IPrimaryText {
   text: string
 }
@@ -15,3 +6,13 @@ interface IPrimaryText {
 export const PrimaryText = ({ text }: IPrimaryText): JSX.Element => {
   return <StyledParagraph>{text}</StyledParagraph>
 }
+
+const StyledParagraph = styled.p`
+  margin-bottom: 3rem;
+
+  font-weight: bold;
+  text-align: center;
+
+  font-size: ${({ theme }) => theme.fonts.header};
+  color: ${({ theme }) => theme.colors.secondary};
+`

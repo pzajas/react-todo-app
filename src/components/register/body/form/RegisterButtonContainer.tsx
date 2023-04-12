@@ -22,6 +22,5 @@ export const RegisterButtonContainer = ({ onSubmit }: any): JSX.Element => {
 const StyledButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
   margin-bottom: 4.4rem;
 `
