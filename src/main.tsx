@@ -14,12 +14,10 @@ import { GlobalStyle } from './styles/GlobalStyle'
 const persistor = persistStore(store)
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <GlobalStyle />
-        <RouterProvider router={router} />
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </PersistGate>
+  </Provider>
 )

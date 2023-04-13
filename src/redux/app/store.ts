@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 
 import storage from 'redux-persist/lib/storage'
+import todoReducer from '../features/todoSlice'
 import tokenReducer from '../features/tokenSlice'
 
 import {
@@ -24,6 +25,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   token: tokenReducer,
+  todo: todoReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

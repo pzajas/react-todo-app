@@ -37,7 +37,7 @@ export const onSubmit = async (
 
     reset()
 
-    navigate('/auth/todos', { replace: true })
+    navigate('/auth/todos')
   } catch (err: any) {
     console.log(err.response.data)
     dispatch(changeTokenState(0))

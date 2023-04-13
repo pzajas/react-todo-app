@@ -21,6 +21,7 @@ export const RootRouter = createBrowserRouter([
       { path: '/login', element: <Login /> },
       { path: '/register', element: <Login /> },
       { path: '*', element: <ErrorPage /> },
+      { path: '/auth/todos', element: <Todos /> },
 
       {
         path: 'auth',
@@ -29,10 +30,6 @@ export const RootRouter = createBrowserRouter([
           {
             path: '/auth/logout',
             element: <Logout />,
-          },
-          {
-            path: '/auth/todos',
-            element: <Todos />,
           },
         ],
       },
