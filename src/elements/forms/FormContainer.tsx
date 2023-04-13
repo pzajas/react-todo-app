@@ -15,8 +15,8 @@ import styled from 'styled-components'
 
 export const FormContainer: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
-  const path = window.location.pathname
   const navigate = useNavigate()
+  const path = window.location.pathname
 
   const {
     register,
