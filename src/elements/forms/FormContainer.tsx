@@ -10,11 +10,13 @@ import { useForm } from 'react-hook-form'
 
 import { type IFormData } from '@typescript/types/types'
 
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const FormContainer: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
   const path = window.location.pathname
+  const navigate = useNavigate()
 
   const {
     register,
@@ -25,13 +27,18 @@ export const FormContainer: React.FC = (): JSX.Element => {
 
   const onSubmitHandler = async (data: IFormData): Promise<void> => {
     path === '/login'
-      ? await onSubmit(data, reset, dispatch)
+      ? await onSubmit(data, reset, dispatch, navigate)
       : await RegisterSubmit(data, reset)
   }
 
   const formInputs = [
     { name: 'email', placeholder: 'email', icon: <LoginUser /> },
-    { name: 'password', placeholder: 'password', icon: <LoginPassword /> },
+    {
+      name: 'password',
+      placeholder: 'password',
+      type: 'text',
+      icon: <LoginPassword />,
+    },
   ]
 
   return (
