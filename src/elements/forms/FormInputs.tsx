@@ -11,6 +11,7 @@ interface Props {
   register: any
   errors: any
   icon: JSX.Element
+  type?: any
 }
 
 export const FormInputs: React.FC<Props> = ({
@@ -20,6 +21,7 @@ export const FormInputs: React.FC<Props> = ({
   register,
   errors,
   icon,
+  type,
 }) => {
   return (
     <Wrapper>
@@ -27,6 +29,7 @@ export const FormInputs: React.FC<Props> = ({
         <input
           {...register(name)}
           placeholder={placeholder}
+          type={type}
           autoComplete={autoComplete}
         />
         <div>{icon}</div>

@@ -10,7 +10,7 @@ import {
   type IResolver,
 } from '../typescript/types/types'
 
-import axios, { type AxiosResponse } from 'axios'
+import axios from 'axios'
 import jwtDecode, { type JwtPayload } from 'jwt-decode'
 
 import Cookies from 'universal-cookie'
@@ -18,18 +18,16 @@ import Cookies from 'universal-cookie'
 export const onSubmit = async (
   data: IFormData,
   reset: IReset,
-  dispatch: IDispatch
+  dispatch: IDispatch,
+  navigate: (path: string) => void
 ): Promise<void> => {
   const cookies = new Cookies()
 
   try {
-    const response: AxiosResponse<{ token: string }> = await axios.post(
-      HTTP_URLS.LOGIN,
-      {
-        email: data.email,
-        password: data.password,
-      }
-    )
+    const response: any = await axios.post(HTTP_URLS.LOGIN, {
+      email: data.email,
+      password: data.password,
+    })
 
     const token: string = response.data.token
     jwtDecode<JwtPayload>(token)
@@ -38,6 +36,8 @@ export const onSubmit = async (
     dispatch(changeTokenState(Date.now()))
 
     reset()
+
+    navigate('/auth/todos', { replace: true })
   } catch (err: any) {
     console.log(err.response.data)
     dispatch(changeTokenState(0))
