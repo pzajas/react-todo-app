@@ -1,18 +1,12 @@
 import { useForm } from 'react-hook-form'
 
-type FormData = Record<string, string>
-
-type AddTodoFormProps = {
-  onSubmit: (data: FormData) => Promise<void>
-  inputName: string
-  buttonText?: string
-}
+import { type FormData, type FormProps } from '@typescript/types'
 
 export const PrimaryForm = ({
   onSubmit,
-  inputName,
+  inputs,
   buttonText = 'Submit',
-}: AddTodoFormProps): JSX.Element => {
+}: FormProps): JSX.Element => {
   const { reset, handleSubmit, register } = useForm<FormData>()
 
   const onSubmitTodo = async (data: FormData): Promise<void> => {
@@ -27,7 +21,14 @@ export const PrimaryForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmitTodo)}>
-      <input type="text" {...register(inputName)} />
+      {inputs?.map(({ type, name, placeholder }) => (
+        <input
+          key={name}
+          type={type}
+          placeholder={placeholder}
+          {...register(name)}
+        />
+      ))}
       <button type="submit">{buttonText}</button>
     </form>
   )
