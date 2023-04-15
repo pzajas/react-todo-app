@@ -1,10 +1,15 @@
 import { PrimaryForm as Form } from './PrimaryForm'
-
 import { handleSubmit } from './onSubmitFunction'
 import { useDispatch } from 'react-redux'
 
+import { type InputArrayType } from '@typescript/types'
+
 const Todos = (): JSX.Element => {
   const dispatch = useDispatch()
+
+  const inputsArray: InputArrayType[] = [
+    { type: 'text', name: 'text', placeholder: 'Add a todo' },
+  ]
 
   return (
     <div>
@@ -12,7 +17,7 @@ const Todos = (): JSX.Element => {
         onSubmit={async (data) => {
           await handleSubmit(data, dispatch)
         }}
-        inputName="text"
+        inputs={inputsArray}
       />
     </div>
   )
