@@ -8,15 +8,15 @@ import { onSubmit, resolverOptions } from '@utils/onSubmit'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 
-import { type IFormData } from '@typescript/types/types'
+import { type IFormData } from '@typescript/types'
 
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const FormContainer: React.FC = (): JSX.Element => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const path = window.location.pathname
+  const navigate = useNavigate()
 
   const {
     register,

@@ -42,6 +42,14 @@
     "@typescript-eslint/strict-boolean-expressions": "warn",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
-    "@typescript-eslint/consistent-type-definitions": "off"
+    "@typescript-eslint/consistent-type-definitions": "off",
+
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": ["^completed$", "^value$"],
+        "argsIgnorePattern": ["^completed$", "^value$"]
+      }
+    ]
   }
 }

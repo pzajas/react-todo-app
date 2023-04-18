@@ -1,42 +1,26 @@
-import { type MouseEventHandler } from 'react'
-
 import styled from 'styled-components'
-interface IProps {
-  text: string
-  icon: JSX.Element
 
-  type?: any
-  onClick?: MouseEventHandler<void>
-}
+import { type ButtonType } from '@typescript/types'
 
-export const PrimaryButton = ({ text, icon }: IProps): JSX.Element => {
+export const PrimaryButton = ({
+  text,
+  icon,
+  className,
+}: ButtonType): JSX.Element => {
   return (
-    <StyledButton>
-      <div>
+    <button className={className}>
+      <Styled>
         {text}
         {icon}
-      </div>
-    </StyledButton>
+      </Styled>
+    </button>
   )
 }
 
-const StyledButton = styled.button`
-  width: 8.3rem;
-  height: 2.7rem;
-  padding: 0rem 1.7rem 0rem 1.7rem;
-  border-radius: 0.2rem;
-
+const Styled = styled.div`
+  display: flex;
+  place-content: center;
   align-items: center;
-  text-align: center;
-  cursor: pointer;
 
-  background-color: ${({ theme }) => theme.colors.primary};
-  border: ${({ theme }) => theme.borders.secondary};
-  font-size: ${({ theme }) => theme.fonts.small};
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  gap: 1rem;
 `

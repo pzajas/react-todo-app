@@ -10,6 +10,7 @@ export default defineConfig({
       '@elements': '/src/elements',
       '@libs': '/src/libs',
       '@components': '/src/components',
+      '@redux': '/src/redux',
     },
   },
   plugins: [react()],

@@ -4,9 +4,9 @@ import { MainLayout } from './routes/MainLayout'
 import { ThemeProvider } from 'styled-components'
 import { createBrowserRouter } from 'react-router-dom'
 import { theme } from '../styles/theme'
-import App from '../App'
+import { Todos } from '../components/todo/Todos'
 
-import Todos from '../components/todo/Todos'
+import App from '../App'
 
 export const RootRouter = createBrowserRouter([
   {
