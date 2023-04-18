@@ -8,11 +8,11 @@ export const PrimaryForm = ({
   buttonText = 'Submit',
 }: FormProps): JSX.Element => {
   const { reset, handleSubmit, register } = useForm<FormData>()
+  const { name } = inputs
 
   const onSubmitTodo = async (data: FormData): Promise<void> => {
     try {
       await onSubmit(data)
-
       reset()
     } catch (error) {
       console.log(error)
@@ -26,6 +26,7 @@ export const PrimaryForm = ({
           key={name}
           type={type}
           placeholder={placeholder}
+          autoComplete="off"
           {...register(name)}
         />
       ))}

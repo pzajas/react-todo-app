@@ -1,11 +1,5 @@
 import { HTTP_URLS } from '@libs/http'
-import {
-  addTodo,
-  completeTodo,
-  deleteTodo,
-  setTodos,
-  updateTodo,
-} from '../../redux/features/todoSlice'
+import { addTodo, setTodos, updateTodo } from '../../redux/features/todoSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -76,48 +70,6 @@ const Todos = (): JSX.Element => {
       console.log(error)
     }
   }
-
-  const onDeleteTodo = async (id: number): Promise<void> => {
-    try {
-      await axios.delete(`${HTTP_URLS.TODOS}/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        withCredentials: true,
-      })
-      dispatch(deleteTodo({ id }))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  // jkdhksdhfsdfhksdfhsdhfkjdshfkjsdhksdjfhjksdhfkjdshjsdhfjksdhkjsdhfkjdshfkdsfhkjsdhfkjsdhfk
-  const onCompleteTodo = async (
-    id: number,
-    value: string,
-    completed: boolean
-  ): Promise<any> => {
-    try {
-      await axios.patch(
-        `${HTTP_URLS.TODOS}/${id}`,
-        {
-          value,
-          completed: !completed,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        }
-      )
-
-      dispatch(completeTodo({ id, value, completed }))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  // jkdhksdhfsdfhksdfhsdhfkjdshfkjsdhksdjfhjksdhfkjdshjsdhfjksdhkjsdhfkjdshfkdsfhkjsdhfkjsdhfk
 
   const handleEdit = (id: number): void => {
     setEdit(id)
@@ -191,20 +143,8 @@ const Todos = (): JSX.Element => {
               </div>
 
               <div>
-                <button
-                  onClick={async () => {
-                    await onDeleteTodo(todo.id)
-                  }}
-                >
-                  DEL
-                </button>
-                <button
-                  onClick={async () => {
-                    await onCompleteTodo(todo.id, todo.value, todo.completed)
-                  }}
-                >
-                  COMPLE
-                </button>
+                <button>DEL</button>
+                <button>COMPLE</button>
               </div>
             </li>
           </ListItemContainer>

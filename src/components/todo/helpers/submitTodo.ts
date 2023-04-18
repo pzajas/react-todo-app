@@ -1,10 +1,10 @@
 import { HTTP_URLS } from '@libs/http'
-import { addTodo } from '../../redux/features/todoSlice'
-import { type useDispatch } from 'react-redux'
+import { addTodo } from '@redux/features/todoSlice'
+import { getCookiesToken } from './getCookiesToken'
+
+import { type Dispatch } from '@reduxjs/toolkit'
 
 import axios, { type AxiosResponse } from 'axios'
-
-import Cookies from 'universal-cookie'
 
 type TodoData = {
   id: number
@@ -12,17 +12,13 @@ type TodoData = {
   completed: boolean
 }
 
-type DispatchType = ReturnType<typeof useDispatch>
-
 type FormData = Record<string, string>
 
-export const handleSubmit = async (
+export const submitTodo = async (
   data: FormData,
-  dispatch: DispatchType
+  dispatch: Dispatch
 ): Promise<void> => {
-  const cookies = new Cookies()
-
-  const token: string = cookies.get('token')
+  const token = getCookiesToken()
 
   const response: AxiosResponse<{ todo: TodoData }> = await axios.post(
     HTTP_URLS.TODOS,
