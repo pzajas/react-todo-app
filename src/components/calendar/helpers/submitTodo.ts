@@ -1,6 +1,6 @@
 import { HTTP_URLS } from '@libs/http'
 import { addTodo } from '@redux/features/todoSlice'
-import { getCookiesToken } from './getCookiesToken'
+import { getToken } from './getToken'
 
 import { type Dispatch } from '@reduxjs/toolkit'
 
@@ -18,7 +18,7 @@ export const submitTodo = async (
   data: FormData,
   dispatch: Dispatch
 ): Promise<void> => {
-  const token = getCookiesToken()
+  const token = getToken()
 
   const response: AxiosResponse<{ todo: TodoData }> = await axios.post(
     HTTP_URLS.TODOS,

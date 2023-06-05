@@ -4,7 +4,7 @@ import { MainLayout } from './routes/MainLayout'
 import { ThemeProvider } from 'styled-components'
 import { createBrowserRouter } from 'react-router-dom'
 import { theme } from '../styles/theme'
-import { Todos } from '../components/todo/Todos'
+import { Todos } from '@components/calendar/Todos'
 
 import App from '../App'
 
@@ -25,7 +25,11 @@ export const RootRouter = createBrowserRouter([
 
   {
     path: '/auth',
-    element: <MainLayout />,
+    element: (
+      <ThemeProvider theme={theme}>
+        <MainLayout />
+      </ThemeProvider>
+    ),
     children: [{ path: 'todos', element: <Todos /> }],
   },
 ])

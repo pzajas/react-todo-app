@@ -8,8 +8,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  padding: 5rem 6rem 5rem 6rem;
-
   * {
   font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
   }
