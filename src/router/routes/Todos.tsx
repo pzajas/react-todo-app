@@ -108,20 +108,20 @@ const Todos = (): JSX.Element => {
     }
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <StyledTodoForm onSubmit={handleSubmit(onSubmit)}>
         <input {...register('edit')} />
         <button type="submit">Save</button>
         {isSubmitting && <div>Submitting...</div>}
-      </form>
+      </StyledTodoForm>
     )
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmitTodo)}>
+      <StyledTodoForm onSubmit={handleSubmit(onSubmitTodo)}>
         <input type="text" {...register('text')} />
-        <button type="submit">Submit</button>
-      </form>
+        <button type="submit">Submit...</button>
+      </StyledTodoForm>
       <StyledList>
         {todos?.map((todo: ITodo) => (
           <ListItemContainer key={todo.id}>
@@ -155,6 +155,10 @@ const Todos = (): JSX.Element => {
 }
 
 export default Todos
+
+const StyledTodoForm = styled.form`
+  margin-top: 3rem;
+`
 
 const StyledList = styled.div`
   background-color: #202020;

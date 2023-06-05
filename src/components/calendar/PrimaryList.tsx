@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 
 import { TodoType, type TodosType } from '@typescript/types'
 import { AnyAction, Dispatch } from '@reduxjs/toolkit'
+import styled from 'styled-components'
 
 type Options = {
   onDeleteTodo: (id: number, dispatch: Dispatch<AnyAction>) => Promise<void>
@@ -19,7 +20,7 @@ export const PrimaryList = ({ todos }: { todos: TodosType }): JSX.Element => {
   const dispatch = useDispatch()
 
   return (
-    <div>
+    <StyledListWrapper>
       {todos?.map((todo) => {
         const { id, value, completed } = todo
         const options: any = [onDeleteTodo, onCompleteTodo, dispatch]
@@ -30,6 +31,14 @@ export const PrimaryList = ({ todos }: { todos: TodosType }): JSX.Element => {
           </div>
         )
       })}
-    </div>
+    </StyledListWrapper>
   )
 }
+
+const StyledListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  height: 65vh;
+  overflow: auto;
+`
